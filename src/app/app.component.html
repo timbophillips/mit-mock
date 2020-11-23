@@ -1,0 +1,68 @@
+<header>
+  <a routerLink="/dashboard" class="logo">MIT logbook</a>
+  <a routerLink="/dashboard" routerLinkActive="active" class="button"
+    >Dashboard</a
+  >
+  <a routerLink="/patients" routerLinkActive="active" class="button"
+    >Patients</a
+  >
+  <a routerLink="/cases" routerLinkActive="active" class="button">Cases</a>
+  <a routerLink="/stats" routerLinkActive="active" class="button">Stats</a>
+</header>
+<div style="padding: 20px">
+
+  <!-- this bit is wihtin the dashboard component -->
+
+  <div class="card" class="card fluid">
+    <div class="section">Recent Cases</div>
+
+    <div class="section">
+      <div style="padding: 20px">
+        <table style="width: 100%; max-height: 805px;" class="hoverable">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>UMRN</th>
+              <th>First Name</th>
+
+              <th>Last Name</th>
+              <th>Doctor</th>
+              <th>Access</th>
+              <th>Procedure</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of cases$ | async">
+              <td>
+                {{ (item ? item.date : "") | date: "dd-MMM-yyyy" }}
+              </td>
+              <td>
+                {{ item.patient ? item.patient.umrn : "" }}
+              </td>
+              <td>
+                {{ item.patient ? item.patient.firstname : "" }}
+              </td>
+              <td>
+                {{ item.patient ? item.patient.lastname : "" }}
+              </td>
+              <td>
+                {{ item.doctor ? item.doctor.name : "" }}
+              </td>
+              <td>
+                {{ item.access ? item.access.vessel : "" }}
+              </td>
+              <td>
+                {{ item.procedure ? item.procedure.text : "" }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- this bit is wihtin the dashboard component -->
+
+
+
+</div>
