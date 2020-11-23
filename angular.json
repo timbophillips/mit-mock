@@ -25,7 +25,7 @@
             "styles": [
               "src/styles.scss",
               "src/skeleton.css",
-              "normalize.css"
+              "src/normalize.css"
             ],
             "scripts": []
           },
